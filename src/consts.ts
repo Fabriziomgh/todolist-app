@@ -13,7 +13,7 @@ export const tasksStatusForm: TaskStatusForm[] = [
    },
    {
       id: '3',
-      label: 'En pregreso',
+      label: 'En progreso',
       value: 'in-progress',
    },
 ];
