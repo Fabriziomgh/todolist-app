@@ -1,6 +1,6 @@
 export default function Footer() {
    return (
-      <div className="mt-12 border-t border-gray-100 py-6 lg:px-6">
+      <footer className="mt-12 border-t fixed bottom-0 w-full left-0 border-gray-100 py-6 lg:px-6">
          <div className="text-center sm:flex sm:justify-between sm:text-left">
             <p className="text-sm text-gray-500">
                <span className="block sm:inline">
@@ -25,6 +25,6 @@ export default function Footer() {
                &copy; 2024 Shadow_M
             </p>
          </div>
-      </div>
+      </footer>
    );
 }
