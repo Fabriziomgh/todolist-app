@@ -130,7 +130,6 @@ export default function TaskForm({ userId }: Props) {
                         });
                      }}
                      type="button"
-                     className=""
                   >
                      Eliminar
                   </button>
@@ -145,7 +144,7 @@ export default function TaskForm({ userId }: Props) {
                   }
                )}
             >
-               <button disabled={isSubmitting} className="">
+               <button disabled={isSubmitting}>
                   {isSubmitting ? 'Cargando...' : 'Guardar'}
                </button>
                <CheckIcon />

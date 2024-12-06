@@ -5,6 +5,7 @@ export default function OpenButtonForm() {
    const openModal = useModalStore((s) => s.openModal);
    return (
       <button
+         aria-label="openForm"
          onClick={openModal}
          className="bg-app-cream  p-2 rounded-lg font-semibold hover:scale-90 transition-transform"
       >
