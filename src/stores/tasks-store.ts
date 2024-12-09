@@ -1,16 +1,11 @@
 import { create } from 'zustand';
-import {
-   addNewTask,
-   deleteTask,
-   getAllTasksByUserId,
-   updateTask,
-} from '@/db/requests';
+import { addNewTask, deleteTask, updateTask } from '@/db/requests';
 import { Task, TaskStatus } from '@/types';
 
 interface TasksState {
    tasks: Task[] | null;
    loading: boolean;
-   getAllTasks: (userId: string | undefined) => Promise<void>;
+   getAllTasks: (task: Task[]) => Promise<void>;
    addNewTask: (newTask: NewTask) => Promise<void>;
    updateTask: (
       updateTask: NewTask,
@@ -28,10 +23,9 @@ interface NewTask {
 export const useTasksStore = create<TasksState>()((set, get) => ({
    tasks: [],
    loading: true,
-   getAllTasks: async (userId) => {
+   getAllTasks: async (task) => {
       try {
-         const response = await getAllTasksByUserId(userId);
-         set({ tasks: response?.data, loading: false });
+         set({ tasks: task, loading: false });
       } catch (error) {
          console.log(error);
       }
@@ -62,7 +56,6 @@ export const useTasksStore = create<TasksState>()((set, get) => ({
             return task;
          });
          set({ tasks: tasksUpdated });
-         console.log(tasks);
       } catch (error) {
          console.log(error);
       }

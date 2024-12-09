@@ -3,17 +3,19 @@ import { useTasksStore } from '@/stores/tasks-store';
 import { useEffect } from 'react';
 import TaskItem from './TaskItem';
 import Spinner from './Spinner';
+import { Task } from '@/types';
 
 interface Props {
-   userId: string | undefined;
+   tasks: Task[] | undefined;
 }
 
-export default function TasksGrid({ userId }: Props) {
+export default function TasksGrid({ tasks: tasksUser }: Props) {
    const { loading, tasks, getAllTasks } = useTasksStore((e) => e);
 
    useEffect(() => {
-      getAllTasks(userId);
-   }, [getAllTasks, userId]);
+      if (tasksUser === undefined) return;
+      getAllTasks(tasksUser);
+   }, []);
 
    if (tasks === null) return <div>Error</div>;
 

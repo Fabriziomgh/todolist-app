@@ -7,7 +7,7 @@ export default function OpenButtonForm() {
       <button
          aria-label="openForm"
          onClick={openModal}
-         className="bg-app-cream  p-2 rounded-lg font-semibold hover:scale-90 transition-transform"
+         className=" m-2 rounded-lg font-semibold hover:scale-90 transition-transform"
       >
          <div className="p-1 rounded-lg bg-app-orange">
             <PlusIcon />
